@@ -1,7 +1,6 @@
 package alfredo.retrofit.retrofit
 
-import alfredo.retrofit.data.Localidad
-import com.example.pruebarestapi.data.*
+import com.alfredo.pruebarestapi.data_retrofit.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

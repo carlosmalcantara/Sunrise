@@ -1,7 +1,16 @@
-package com.example.pruebarestapi.data
+package com.alfredo.pruebarestapi.data_retrofit
 
-data class Region_Paises(
-    val ID: String,
-    val LocalizedName: String,
-    val EnglishName: String
+import com.squareup.moshi.Json
+
+
+data class Region_Paises (
+
+    @Json(name = "ID")
+    var ID: String? = null,
+
+    @Json(name = "LocalizedName")
+    var LocalizedName: String? = null,
+
+    @Json(name = "EnglishName")
+    var EnglishName: String? = null
 )

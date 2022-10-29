@@ -1,11 +1,5 @@
-package com.example.pruebarestapi.data
+package com.alfredo.pruebarestapi.data_retrofit
 
 data class Region(
-    val id: String,
-    val LocalizedName: String,
-    val EnglishName: String,
-    val Level: Int,
-    val LocalizedType: String,
-    val EnglishType: String,
-    val CountryID: String,
+    val a:String
 )

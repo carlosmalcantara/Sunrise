@@ -1,12 +1,45 @@
-package com.example.pruebarestapi.data
+package com.alfredo.pruebarestapi.data_retrofit
+
+import com.squareup.moshi.Json
 
 data class Autocompletado(
-    val Version: Int,
-    val Key: String,
-    val Type: String,
-    val Rank: Int,
-    val LocalizedName: String,
-    val Country: Pais_2,
-    val AdministrativeArea: Area_Administrativa
+    @Json(name = "Version")
+    var Version: Int? = null,
+
+    @Json(name = "Key")
+    var Key: String? = null,
+    @Json(name = "Type")
+    var Type: String? = null,
+    @Json(name = "Rank")
+    var Rank               : Int?                = null,
+    @Json(name = "LocalizedName")
+    var LocalizedName      : String?             = null,
+    @Json(name = "Country")
+    var Country            : Country?            = Country(),
+    @Json(name = "AdministrativeArea")
+    var AdministrativeArea : AdministrativeArea? = AdministrativeArea()
+)
+
+
+data class Country (
+
+    @Json(name = "ID")
+    var ID: String? = null,
+
+    @Json(name = "LocalizedName")
+    var LocalizedName : String? = null
 
 )
+
+data class AdministrativeArea (
+
+    @Json(name = "ID")
+    var ID: String? = null,
+
+    @Json(name = "LocalizedName")
+    var LocalizedName: String? = null
+
+)
+
+
+

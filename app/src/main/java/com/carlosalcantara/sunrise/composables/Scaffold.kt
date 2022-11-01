@@ -1,9 +1,14 @@
 package com.carlosalcantara.sunrise
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -15,33 +20,36 @@ fun ScaffoldExample() {
 
     Scaffold(
         topBar = {
-            MyTopAppBar {
+            MyTopAppBar(onClickIcon = {
                 coroutineScope.launch {
                     scaffoldState.snackbarHostState.showSnackbar(
                         "Has pulsado $it"
                     )
                 }
-            }
+            }, onClickDrawer = {coroutineScope.launch { scaffoldState.drawerState.open() }})
         },
         scaffoldState = scaffoldState,
         bottomBar = { MyBottomNavigation() },
-        floatingActionButton = { MyFAB()},
-        floatingActionButtonPosition = FabPosition.Center
+        floatingActionButton = { MyFAB() },
+        floatingActionButtonPosition = FabPosition.End,
+        isFloatingActionButtonDocked = false,
+        drawerContent = { MyDrawer {coroutineScope.launch { scaffoldState.drawerState.close() }} },
+        drawerGesturesEnabled = false
     ) {
 
     }
 }
 
 @Composable
-fun MyTopAppBar(onClickIcon: (String) -> Unit) {
+fun MyTopAppBar(onClickIcon: (String) -> Unit, onClickDrawer: () -> Unit) {
     TopAppBar(
         title = { Text(text = "Mi primera toolbar") },
         backgroundColor = Color.DarkGray,
         contentColor = Color.White,
         elevation = 4.dp,
         navigationIcon = {
-            IconButton(onClick = { onClickIcon("Atrás") }) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "back")
+            IconButton(onClick = { onClickDrawer() }) {
+                Icon(imageVector = Icons.Filled.Menu, contentDescription = "menu")
             }
         },
         actions = {
@@ -82,8 +90,34 @@ fun MyBottomNavigation() {
 }
 
 @Composable
-fun MyFAB(){
-    FloatingActionButton(onClick = {  }, backgroundColor = Color.Red, contentColor = Color.White) {
+fun MyFAB() {
+    FloatingActionButton(onClick = { }, backgroundColor = Color.Red, contentColor = Color.White) {
         Icon(imageVector = Icons.Filled.Add, contentDescription = "add")
+    }
+}
+
+@Composable
+fun MyDrawer(onCloseDrawer: () -> Unit) {
+    Column(Modifier.padding(8.dp)) {
+        Text(
+            "Pimera opcion", modifier = Modifier
+                .fillMaxWidth()
+                .padding().clickable { onCloseDrawer() }
+        )
+        Text(
+            "Segunda opcion", modifier = Modifier
+                .fillMaxWidth()
+                .padding().clickable { onCloseDrawer() }
+        )
+        Text(
+            "Tercera opcion", modifier = Modifier
+                .fillMaxWidth()
+                .padding().clickable { onCloseDrawer() }
+        )
+        Text(
+            "Cuarta opcion", modifier = Modifier
+                .fillMaxWidth()
+                .padding().clickable { onCloseDrawer() }
+        )
     }
 }

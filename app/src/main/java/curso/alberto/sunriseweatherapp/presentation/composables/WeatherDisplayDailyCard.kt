@@ -33,7 +33,7 @@ fun WeatherDisplayDailyCard(
                 style = TextStyle(fontSize = 18.sp)
             )
             Text(
-                text = "18º",
+                text = "120º",
                 style = TextStyle(
                     fontSize = 100.sp,
                     fontWeight = FontWeight.Light,

@@ -3,21 +3,21 @@ package com.alfredo.pruebarestapi.data_retrofit
 import com.squareup.moshi.Json
 
 data class Localidad(
-    @Json(name = "Version"                ) var Version                : Int?                              = null,
-    @Json(name = "Key"                    ) var Key                    : String?                           = null,
-    @Json(name = "Type"                   ) var Type                   : String?                           = null,
-    @Json(name = "Rank"                   ) var Rank                   : Int?                              = null,
-    @Json(name = "LocalizedName"          ) var LocalizedName          : String?                           = null,
-    @Json(name = "EnglishName"            ) var EnglishName            : String?                           = null,
-    @Json(name = "PrimaryPostalCode"      ) var PrimaryPostalCode      : String?                           = null,
-    @Json(name = "Region"                 ) var Region                 : RegionB?                           = RegionB(),
-    @Json(name = "Country"                ) var Country                : CountryB?                          = CountryB(),
-    @Json(name = "AdministrativeArea"     ) var AdministrativeArea     : AdministrativeAreaB?               = AdministrativeAreaB(),
+    @Json(name = "Version") var version: Int?                              = null,
+    @Json(name = "Key") var key: String?                           = null,
+    @Json(name = "Type") var type: String?                           = null,
+    @Json(name = "Rank") var rank: Int?                              = null,
+    @Json(name = "LocalizedName") var localizedName: String?                           = null,
+    @Json(name = "EnglishName") var EnglishName: String?                           = null,
+    @Json(name = "PrimaryPostalCode") var PrimaryPostalCode: String?                           = null,
+    @Json(name = "Region") var Region: RegionB?                           = RegionB(),
+    @Json(name = "Country") var Country: CountryB?                          = CountryB(),
+    @Json(name = "AdministrativeArea") var adminArea: AdministrativeAreaB?               = AdministrativeAreaB(),
     @Json(name = "TimeZone"               ) var TimeZone               : TimeZone?                         = TimeZone(),
     @Json(name = "GeoPosition"            ) var GeoPosition            : GeoPosition?                      = GeoPosition(),
     @Json(name = "IsAlias"                ) var IsAlias                : Boolean?                          = null,
-    @Json(name = "SupplementalAdminAreas" ) var SupplementalAdminAreas : ArrayList<SupplementalAdminAreas> = arrayListOf(),
-    @Json(name = "DataSets"               ) var DataSets               : ArrayList<String>                 = arrayListOf()
+    //@Json(name = "SupplementalAdminAreas" ) var SupplementalAdminAreas : ArrayList<SupplementalAdminAreas> = arrayListOf(),
+    //@Json(name = "DataSets") var dataSets: ArrayList<String>                 = arrayListOf()
 )
 
 data class RegionB (

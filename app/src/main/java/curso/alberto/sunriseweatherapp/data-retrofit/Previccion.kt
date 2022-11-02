@@ -40,6 +40,18 @@ data class Maximum (
 
 )
 
+data class DailyForecasts (
+
+    @Json(name = "Date") var date: String?           = null,
+    @Json(name = "EpochDate") var epochDate   : Int?              = null,
+    @Json(name = "Temperature" ) var temperature : TemperatureC?      = TemperatureC(),
+    @Json(name = "Day"         ) var day         : Day?              = Day(),
+    @Json(name = "Night"       ) var night       : Night?            = Night(),
+    @Json(name = "Sources"     ) var sources     : ArrayList<String> = arrayListOf(),
+    @Json(name = "MobileLink"  ) var mobileLink  : String?           = null,
+    @Json(name = "Link"        ) var link        : String?           = null
+
+)
 data class TemperatureC (
 
     @Json(name = "Minimum" ) var Minimum : Minimum? = Minimum(),
@@ -57,23 +69,11 @@ data class Day (
 
 data class Night (
 
-    @Json(name = "Icon"             ) var Icon             : Int?     = null,
-    @Json(name = "IconPhrase"       ) var IconPhrase       : String?  = null,
-    @Json(name = "HasPrecipitation" ) var HasPrecipitation : Boolean? = null
+    @Json(name = "Icon"             ) var icon             : Int?     = null,
+    @Json(name = "IconPhrase"       ) var iconPhrase       : String?  = null,
+    @Json(name = "HasPrecipitation" ) var hasPrecipitation : Boolean? = null
 
 )
 
-data class DailyForecasts (
-
-    @Json(name = "Date"        ) var Date        : String?           = null,
-    @Json(name = "EpochDate"   ) var EpochDate   : Int?              = null,
-    @Json(name = "Temperature" ) var Temperature : TemperatureC?      = TemperatureC(),
-    @Json(name = "Day"         ) var Day         : Day?              = Day(),
-    @Json(name = "Night"       ) var Night       : Night?            = Night(),
-    @Json(name = "Sources"     ) var Sources     : ArrayList<String> = arrayListOf(),
-    @Json(name = "MobileLink"  ) var MobileLink  : String?           = null,
-    @Json(name = "Link"        ) var Link        : String?           = null
-
-)
 
 

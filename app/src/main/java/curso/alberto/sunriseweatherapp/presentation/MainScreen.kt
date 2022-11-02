@@ -1,6 +1,7 @@
 package curso.alberto.sunriseweatherapp.presentation
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import curso.alberto.sunriseweatherapp.Controlador_Datos.Accesso_API
 import curso.alberto.sunriseweatherapp.R
 import curso.alberto.sunriseweatherapp.presentation.composables.*
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
@@ -17,6 +19,9 @@ import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen() {
+
+    val acceso_api:Accesso_API = Accesso_API()
+    val datos_api = acceso_api.coger_tiempo_nombre("Madrid")
 
     Scaffold(
         modifier = Modifier
@@ -43,7 +48,7 @@ fun MainScreen() {
                 details = listOf(
                     WeatherDetails(
                         data = 18,
-                        units = "Pressure",
+                        units = "Presionsure",
                         R.drawable.pressure,
                         color = GreyCard
                     ),

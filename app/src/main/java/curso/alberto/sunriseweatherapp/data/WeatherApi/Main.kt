@@ -5,7 +5,7 @@ package curso.alberto.sunriseweatherapp.data.WeatherApi
 
 data class Main(
 
-    val feelsLike: Double,
+    val feelsLike: Int,
 
     val humidity: Int,
 

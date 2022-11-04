@@ -1,5 +1,6 @@
 package com.alfredo.pruebarestapi.data_retrofit
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
 data class Previccion_Hora(

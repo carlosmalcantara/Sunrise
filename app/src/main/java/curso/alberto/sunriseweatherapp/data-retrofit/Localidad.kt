@@ -3,26 +3,30 @@ package com.alfredo.pruebarestapi.data_retrofit
 import com.squareup.moshi.Json
 
 data class Localidad(
-    @Json(name = "Version") var version: Int?                              = null,
-    @Json(name = "Key") var key: String?                           = null,
-    @Json(name = "Type") var type: String?                           = null,
-    @Json(name = "Rank") var rank: Int?                              = null,
-    @Json(name = "LocalizedName") var localizedName: String?                           = null,
-    @Json(name = "EnglishName") var EnglishName: String?                           = null,
-    @Json(name = "PrimaryPostalCode") var PrimaryPostalCode: String?                           = null,
+    @Json(name = "Version")
+    val Version: String,
+    @Json(name = "Key")
+    val Key: String,
+    @Json(name = "Type")
+    var Type: String,
+    @Json(name = "Rank")
+    val Rank: Long,
+    @Json(name = "LocalizedName") var localizedName: String,
+    @Json(name = "EnglishName") var EnglishName: String,
+    @Json(name = "PrimaryPostalCode") var PrimaryPostalCode: String,
     @Json(name = "Region") var Region: RegionB?                           = RegionB(),
     @Json(name = "Country") var Country: CountryB?                          = CountryB(),
     @Json(name = "AdministrativeArea") var adminArea: AdministrativeAreaB?               = AdministrativeAreaB(),
-    @Json(name = "TimeZone"               ) var TimeZone               : TimeZone?                         = TimeZone(),
-    @Json(name = "GeoPosition"            ) var GeoPosition            : GeoPosition?                      = GeoPosition(),
-    @Json(name = "IsAlias"                ) var IsAlias                : Boolean?                          = null,
+    @Json(name = "TimeZone") var TimeZone               : TimeZone?                         = TimeZone(),
+    @Json(name = "GeoPosition") var GeoPosition            : GeoPosition?                      = GeoPosition(),
+    @Json(name = "IsAlias") var IsAlias                : Boolean?                          = null,
     //@Json(name = "SupplementalAdminAreas" ) var SupplementalAdminAreas : ArrayList<SupplementalAdminAreas> = arrayListOf(),
     //@Json(name = "DataSets") var dataSets: ArrayList<String>                 = arrayListOf()
 )
 
 data class RegionB (
 
-    @Json(name = "ID"            ) var ID            : String? = null,
+    @Json(name = "ID") var ID            : String? = null,
     @Json(name = "LocalizedName" ) var LocalizedName : String? = null,
     @Json(name = "EnglishName"   ) var EnglishName   : String? = null
 
@@ -88,3 +92,32 @@ data class GeoPosition (
     @Json(name = "Elevation" ) var Elevation : Elevation? = Elevation()
 
 )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

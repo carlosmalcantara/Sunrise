@@ -62,7 +62,7 @@ interface QuotesApi {
         @Path("localidad") localidad: String,
         @Query("apikey") apikey: String,
     ): Response<List<Condiciones>>
-    @GET("currentconditions/v1/{localidad}/historical")
+    @GET("currentconditions/v1/{localidad}")
     suspend fun get_condiciones_actuales_6(
         @Path("localidad") localidad: String,
         @Query("apikey") apikey: String,

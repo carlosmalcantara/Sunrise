@@ -1,15 +1,15 @@
 package com.alfredo.pruebarestapi.data_retrofit
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 data class Pais(
-    @SerializedName("ID")
+    @Json(name = "ID")
     var ID: String? = null,
 
-    @SerializedName("LocalizedName")
+    @Json(name = "LocalizedName")
     var LocalizedName: String? = null,
 
-    @SerializedName("EnglishName")
+    @Json(name = "EnglishName")
     var EnglishName: String? = null
 
 )

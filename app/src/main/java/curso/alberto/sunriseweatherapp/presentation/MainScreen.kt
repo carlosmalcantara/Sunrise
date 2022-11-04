@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import curso.alberto.sunriseweatherapp.Controlador_Datos.Accesso_API
 import curso.alberto.sunriseweatherapp.R
+import curso.alberto.sunriseweatherapp.data.Datos_Tiempo
 import curso.alberto.sunriseweatherapp.presentation.composables.*
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 
@@ -21,7 +22,8 @@ import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 fun MainScreen() {
 
     val acceso_api:Accesso_API = Accesso_API()
-    val datos_api = acceso_api.coger_tiempo_nombre("Madrid")
+    //val datos = acceso_api.resultado
+    val datos = acceso_api.coger_tiempo_nombre("Madrid")
 
     Scaffold(
         modifier = Modifier

@@ -1,6 +1,9 @@
 package curso.alberto.sunriseweatherapp.presentation
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
+import android.location.Location
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,21 +13,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
 import curso.alberto.sunriseweatherapp.Controlador_Datos.Accesso_API
 import curso.alberto.sunriseweatherapp.R
 import curso.alberto.sunriseweatherapp.data.Datos_Tiempo
 import curso.alberto.sunriseweatherapp.presentation.composables.*
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
+import kotlinx.coroutines.delay
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen() {
-
-    val acceso_api:Accesso_API = Accesso_API()
-    //val datos = acceso_api.resultado
-    val datos = acceso_api.coger_tiempo_nombre("Madrid")
-
+    val acceso = Accesso_API()
+    acceso.coger_tiempo_nombre("")
+    while (acceso.datos_adquiridos == false) {}
     Scaffold(
         modifier = Modifier
             .background(Color.White)
@@ -43,7 +49,7 @@ fun MainScreen() {
                 elevation = 0.dp,
                 shape = RoundedCornerShape(10.dp)
             ) {
-                WeatherDisplayDailyCard()
+                WeatherDisplayDailyCard(acceso.resultado)
             }
             WeatherDataInfo(
 

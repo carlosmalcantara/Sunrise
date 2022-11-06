@@ -11,12 +11,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-
+import curso.alberto.sunriseweatherapp.data.Datos_Tiempo
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.util.Date
 
 
 @Composable
 fun WeatherDisplayDailyCard(
-
+    daily: Datos_Tiempo
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -25,15 +28,17 @@ fun WeatherDisplayDailyCard(
     ) {
         Column() {
             Text(
-                text = "Madrid",
+                text = "${daily.ciudad}",
                 style = TextStyle(fontSize = 35.sp)
             )
+            val dateFormat = SimpleDateFormat("d MMM yyyy, EEEE")
+            val date = dateFormat.format(Date())
             Text(
-                text = "16 Oct 2022",
+                text = date,
                 style = TextStyle(fontSize = 18.sp)
             )
             Text(
-                text = "120º",
+                text = "${daily.temperatura_actual}º",
                 style = TextStyle(
                     fontSize = 100.sp,
                     fontWeight = FontWeight.Light,
@@ -41,7 +46,7 @@ fun WeatherDisplayDailyCard(
                 )
             )
             Text(
-                text = "8º / 18º",
+                text = "${daily.temperatura_minima}º / ${daily.temperatura_maxima}º",
                 Modifier.padding(10.dp),
                 style = TextStyle(
                     fontSize = 18.sp,
@@ -57,7 +62,7 @@ fun WeatherDisplayDailyCard(
         ) {
             Column() {
                 AsyncImage(
-                    model = "https://developer.accuweather.com/sites/default/files/14-s.png",
+                    model = "https://developer.accuweather.com/sites/default/files/07-s.png",
                     contentDescription = "icono principal daily",
                     modifier = Modifier
                         .padding(

@@ -14,7 +14,7 @@ data class Localidad(
     @Json(name = "LocalizedName") var localizedName: String,
     @Json(name = "EnglishName") var EnglishName: String,
     @Json(name = "PrimaryPostalCode") var PrimaryPostalCode: String,
-    @Json(name = "Region") var Region: RegionB?                           = RegionB(),
+    @Json(name = "Region") var Region: RegionB? = RegionB(),
     @Json(name = "Country") var Country: CountryB?                          = CountryB(),
     @Json(name = "AdministrativeArea") var adminArea: AdministrativeAreaB?               = AdministrativeAreaB(),
     @Json(name = "TimeZone") var TimeZone               : TimeZone?                         = TimeZone(),

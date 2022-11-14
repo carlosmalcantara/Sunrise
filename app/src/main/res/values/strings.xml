@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sunrise</string>
+
+    <string name="today">Today</string>
+    <string name="next_12_hours">Next 12 hours</string>
+
 </resources>

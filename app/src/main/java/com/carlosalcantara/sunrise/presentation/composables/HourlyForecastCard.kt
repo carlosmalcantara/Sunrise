@@ -52,6 +52,8 @@ fun HourlyForecastCard(
             text = hourlyForecast.temperature,
             fontWeight = FontWeight.SemiBold,
             style = MaterialTheme.typography.body1
+
+
         )
     }
 }

@@ -26,12 +26,14 @@ fun HourlyForecastSheet(
     hourlyForecast: List<HourlyForecast>,
     modifier: Modifier = Modifier
 ) = Card(
-    modifier = modifier.fillMaxWidth()
-        .padding(top=16.dp),
-    backgroundColor = LightGray
+    modifier = modifier
+        .fillMaxWidth()
+        .padding(top = 4.dp),
+    //backgroundColor = LightGray
 
 ) {
     Column (modifier = Modifier.padding(top=4.dp, bottom = 4.dp)){
+        Text(modifier = Modifier.padding(start=8.dp), text = "Hourly")
         LazyRow(
             contentPadding = PaddingValues(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)

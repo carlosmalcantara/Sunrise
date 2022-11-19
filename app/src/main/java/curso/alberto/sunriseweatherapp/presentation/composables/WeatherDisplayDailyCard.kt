@@ -11,9 +11,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import curso.alberto.sunriseweatherapp.data.Datos_Tiempo
+import curso.alberto.sunriseweatherapp.Controlador_Datos.Datos_Tiempo
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.Date
 
 

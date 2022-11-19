@@ -4,22 +4,22 @@ import com.squareup.moshi.Json
 
 data class Localidad(
     @Json(name = "Version")
-    val Version: String,
+    val Version: String = "1",
     @Json(name = "Key")
-    val Key: String,
+    val Key: String? = "308526",
     @Json(name = "Type")
-    var Type: String,
+    var Type: String? = "",
     @Json(name = "Rank")
-    val Rank: Long,
-    @Json(name = "LocalizedName") var localizedName: String,
-    @Json(name = "EnglishName") var EnglishName: String,
-    @Json(name = "PrimaryPostalCode") var PrimaryPostalCode: String,
+    val Rank: Long = 1,
+    @Json(name = "LocalizedName") var localizedName: String = "Madrid",
+    @Json(name = "EnglishName") var EnglishName: String = "Madrid",
+    @Json(name = "PrimaryPostalCode") var PrimaryPostalCode: String = "28001",
     @Json(name = "Region") var Region: RegionB? = RegionB(),
     @Json(name = "Country") var Country: CountryB?                          = CountryB(),
     @Json(name = "AdministrativeArea") var adminArea: AdministrativeAreaB?               = AdministrativeAreaB(),
     @Json(name = "TimeZone") var TimeZone               : TimeZone?                         = TimeZone(),
     @Json(name = "GeoPosition") var GeoPosition            : GeoPosition?                      = GeoPosition(),
-    @Json(name = "IsAlias") var IsAlias                : Boolean?                          = null,
+    @Json(name = "IsAlias") var IsAlias                : Boolean? = false,
     //@Json(name = "SupplementalAdminAreas" ) var SupplementalAdminAreas : ArrayList<SupplementalAdminAreas> = arrayListOf(),
     //@Json(name = "DataSets") var dataSets: ArrayList<String>                 = arrayListOf()
 )

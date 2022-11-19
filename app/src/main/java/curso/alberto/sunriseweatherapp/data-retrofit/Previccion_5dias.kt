@@ -1,9 +1,8 @@
-package com.alfredo.pruebarestapi.data_retrofit
+package curso.alberto.sunriseweatherapp.`data-retrofit`
 
 import com.squareup.moshi.Json
 
-
-data class Previccion (
+data class Previccion_5dias(
 
     @Json(name = "Headline") var Headline: Headline? = Headline(),
     @Json(name = "DailyForecasts") var DailyForecasts: List<DailyForecasts> = arrayListOf()
@@ -35,59 +34,59 @@ data class Moon (
     @Json(name = "Phase") var Phase: String? = null,
     @Json(name = "Age") var Age: Int? = null
 )
-data class Minimum4 (
+data class Minimum1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Maximum4 (
+data class Maximum1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Temperature2 (
-    @Json(name = "Minimum") var Minimum: Minimum4? = Minimum4(),
-    @Json(name = "Maximum") var Maximum: Maximum4? = Maximum4()
+data class Temperature1 (
+    @Json(name = "Minimum") var Minimum: Minimum1? = Minimum1(),
+    @Json(name = "Maximum") var Maximum: Maximum1? = Maximum1()
 )
-data class Minimum5 (
+data class Minimum2 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null,
     @Json(name = "Phrase") var Phrase: String? = null
 )
-data class Maximum5 (
+data class Maximum2 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null,
     @Json(name = "Phrase") var Phrase: String? = null
 )
-data class RealFeelTemperature2 (
-    @Json(name = "Minimum") var Minimum: Minimum5? = Minimum5(),
-    @Json(name = "Maximum") var Maximum: Maximum5? = Maximum5()
+data class RealFeelTemperature1 (
+    @Json(name = "Minimum") var Minimum: Minimum2? = Minimum2(),
+    @Json(name = "Maximum") var Maximum: Maximum2? = Maximum2()
 )
-data class Minimum6 (
+data class Minimum3 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null,
     @Json(name = "Phrase") var Phrase: String? = null
 )
-data class Maximum6 (
+data class Maximum3 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null,
     @Json(name = "Phrase") var Phrase: String? = null
 )
-data class RealFeelTemperatureShade2 (
-    @Json(name = "Minimum") var Minimum: Minimum6? = Minimum6(),
-    @Json(name = "Maximum") var Maximum: Maximum6? = Maximum6()
+data class RealFeelTemperatureShade1 (
+    @Json(name = "Minimum") var Minimum: Minimum3? = Minimum3(),
+    @Json(name = "Maximum") var Maximum: Maximum3? = Maximum3()
 )
 data class Heating (
-    @Json(name = "Value") var Value: Double? = null,
+    @Json(name = "Value") var Value: Int? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
 data class Cooling (
-    @Json(name = "Value") var Value: Double? = null,
+    @Json(name = "Value") var Value: Int? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
@@ -97,67 +96,65 @@ data class DegreeDaySummary (
 )
 data class AirAndPollen (
     @Json(name = "Name") var Name: String? = null,
-    @Json(name = "Value") var Value: Double? = null,
+    @Json(name = "Value") var Value: Int? = null,
     @Json(name = "Category") var Category: String? = null,
     @Json(name = "CategoryValue") var CategoryValue: Int? = null,
     @Json(name = "Type") var Type: String? = null
 )
-data class Speed5 (
+data class Speed1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Direction5 (
+data class Direction1 (
     @Json(name = "Degrees") var Degrees: Int? = null,
     @Json(name = "Localized") var Localized: String? = null,
     @Json(name = "English") var English: String? = null
 )
-data class Wind3 (
-
-    @Json(name = "Speed") var Speed: Speed5? = Speed5(),
-    @Json(name = "Direction") var Direction: Direction5? = Direction5()
-
+data class Wind1 (
+    @Json(name = "Speed") var Speed: Speed1? = Speed1(),
+    @Json(name = "Direction") var Direction: Direction1? = Direction1()
 )
-data class Speed6 (
+data class Speed2 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Direction6 (
+data class Direction2 (
     @Json(name = "Degrees") var Degrees: Int? = null,
     @Json(name = "Localized") var Localized: String? = null,
     @Json(name = "English") var English: String? = null
 )
-data class WindGust3 (
-    @Json(name = "Speed") var Speed: Speed6? = Speed6(),
-    @Json(name = "Direction") var Direction: Direction6? = Direction6()
+data class WindGust1 (
+    @Json(name = "Speed") var Speed: Speed2? = Speed2(),
+    @Json(name = "Direction") var Direction: Direction2? = Direction2()
 )
-data class TotalLiquid3 (
+data class TotalLiquid1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Rain3 (
+data class Rain1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Snow3 (
+data class Snow1 (
+    @Json(name = "Value") var Value: Int? = null,
+    @Json(name = "Unit") var Unit: String? = null,
+    @Json(name = "UnitType") var UnitType: Int? = null
+)
+data class Ice1 (
+    @Json(name = "Value") var Value: Int? = null,
+    @Json(name = "Unit") var Unit: String? = null,
+    @Json(name = "UnitType") var UnitType: Int? = null
+)
+data class Evapotranspiration1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Ice3 (
-    @Json(name = "Value") var Value: Double? = null,
-    @Json(name = "Unit") var Unit: String? = null,
-    @Json(name = "UnitType") var UnitType: Int? = null
-)
-data class Evapotranspiration3 (
-    @Json(name = "Value") var Value: Double? = null,
-    @Json(name = "Unit") var Unit: String? = null,
-    @Json(name = "UnitType") var UnitType: Int? = null
-)
-data class SolarIrradiance3 (
+data class SolarIrradiance1 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
@@ -175,74 +172,75 @@ data class Day (
     @Json(name = "RainProbability") var RainProbability: Int? = null,
     @Json(name = "SnowProbability") var SnowProbability: Int? = null,
     @Json(name = "IceProbability") var IceProbability: Int? = null,
-    @Json(name = "Wind") var Wind: Wind3? = Wind3(),
-    @Json(name = "WindGust") var WindGust: WindGust3? = WindGust3(),
-    @Json(name = "TotalLiquid") var TotalLiquid: TotalLiquid3? = TotalLiquid3(),
-    @Json(name = "Rain") var Rain: Rain3? = Rain3(),
-    @Json(name = "Snow") var Snow: Snow3? = Snow3(),
-    @Json(name = "Ice") var Ice: Ice3? = Ice3(),
+    @Json(name = "Wind") var Wind: Wind1? = Wind1(),
+    @Json(name = "WindGust") var WindGust: WindGust1? = WindGust1(),
+    @Json(name = "TotalLiquid") var TotalLiquid: TotalLiquid1? = TotalLiquid1(),
+    @Json(name = "Rain") var Rain: Rain1? = Rain1(),
+    @Json(name = "Snow") var Snow: Snow1? = Snow1(),
+    @Json(name = "Ice") var Ice: Ice1? = Ice1(),
     @Json(name = "HoursOfPrecipitation") var HoursOfPrecipitation: Double? = null,
     @Json(name = "HoursOfRain") var HoursOfRain: Double? = null,
     @Json(name = "HoursOfSnow") var HoursOfSnow: Int? = null,
     @Json(name = "HoursOfIce") var HoursOfIce: Int? = null,
     @Json(name = "CloudCover") var CloudCover: Int? = null,
-    @Json(name = "Evapotranspiration") var Evapotranspiration: Evapotranspiration3? = Evapotranspiration3(),
-    @Json(name = "SolarIrradiance") var SolarIrradiance: SolarIrradiance3? = SolarIrradiance3()
+    @Json(name = "Evapotranspiration") var Evapotranspiration: Evapotranspiration1? = Evapotranspiration1(),
+    @Json(name = "SolarIrradiance") var SolarIrradiance: SolarIrradiance1? = SolarIrradiance1()
 )
-data class Speed7 (
+data class Speed3 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Direction7 (
+data class Direction3 (
     @Json(name = "Degrees") var Degrees: Int? = null,
     @Json(name = "Localized") var Localized: String? = null,
     @Json(name = "English") var English: String? = null
 )
-data class Wind4 (
-    @Json(name = "Speed") var Speed: Speed7? = Speed7(),
-    @Json(name = "Direction") var Direction: Direction7? = Direction7()
+data class Wind2 (
+    @Json(name = "Speed") var Speed: Speed3? = Speed3(),
+    @Json(name = "Direction") var Direction: Direction3? = Direction3()
 )
-data class Speed8 (
+data class Speed4 (
+
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Direction8 (
+data class Direction4 (
     @Json(name = "Degrees") var Degrees: Int? = null,
     @Json(name = "Localized") var Localized: String? = null,
     @Json(name = "English") var English: String? = null
 )
-data class WindGust4 (
-    @Json(name = "Speed") var Speed: Speed8? = Speed8(),
-    @Json(name = "Direction") var Direction: Direction8? = Direction8()
+data class WindGust2 (
+    @Json(name = "Speed") var Speed: Speed4? = Speed4(),
+    @Json(name = "Direction") var Direction: Direction4? = Direction4()
 )
-data class TotalLiquid4 (
+data class TotalLiquid2 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Rain4 (
+data class Rain2 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Snow4 (
+data class Snow2 (
+    @Json(name = "Value") var Value: Int? = null,
+    @Json(name = "Unit") var Unit: String? = null,
+    @Json(name = "UnitType") var UnitType: Int? = null
+)
+data class Ice2 (
+    @Json(name = "Value") var Value: Int? = null,
+    @Json(name = "Unit") var Unit: String? = null,
+    @Json(name = "UnitType") var UnitType: Int? = null
+)
+data class Evapotranspiration2 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
-data class Ice4 (
-    @Json(name = "Value") var Value: Double? = null,
-    @Json(name = "Unit") var Unit: String? = null,
-    @Json(name = "UnitType") var UnitType: Int? = null
-)
-data class Evapotranspiration4 (
-    @Json(name = "Value") var Value: Double? = null,
-    @Json(name = "Unit") var Unit: String? = null,
-    @Json(name = "UnitType") var UnitType: Int? = null
-)
-data class SolarIrradiance4 (
+data class SolarIrradiance2 (
     @Json(name = "Value") var Value: Int? = null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
@@ -260,28 +258,28 @@ data class Night (
     @Json(name = "RainProbability") var RainProbability: Int? = null,
     @Json(name = "SnowProbability") var SnowProbability: Int? = null,
     @Json(name = "IceProbability") var IceProbability: Int? = null,
-    @Json(name = "Wind") var Wind: Wind4? = Wind4(),
-    @Json(name = "WindGust") var WindGust: WindGust4? = WindGust4(),
-    @Json(name = "TotalLiquid") var TotalLiquid: TotalLiquid4? = TotalLiquid4(),
-    @Json(name = "Rain") var Rain: Rain4? = Rain4(),
-    @Json(name = "Snow") var Snow: Snow4? = Snow4(),
-    @Json(name = "Ice") var Ice: Ice4? = Ice4(),
+    @Json(name = "Wind") var Wind: Wind2? = Wind2(),
+    @Json(name = "WindGust") var WindGust: WindGust2? = WindGust2(),
+    @Json(name = "TotalLiquid") var TotalLiquid: TotalLiquid2? = TotalLiquid2(),
+    @Json(name = "Rain") var Rain: Rain2? = Rain2(),
+    @Json(name = "Snow") var Snow: Snow2? = Snow2(),
+    @Json(name = "Ice") var Ice: Ice2? = Ice2(),
     @Json(name = "HoursOfPrecipitation") var HoursOfPrecipitation: Double? = null,
     @Json(name = "HoursOfRain") var HoursOfRain: Double? = null,
     @Json(name = "HoursOfSnow") var HoursOfSnow: Double? = null,
     @Json(name = "HoursOfIce") var HoursOfIce: Double? = null,
-    @Json(name = "CloudCover") var CloudCover: Double? = null,
-    @Json(name = "Evapotranspiration") var Evapotranspiration: Evapotranspiration4? = Evapotranspiration4(),
-    @Json(name = "SolarIrradiance") var SolarIrradiance: SolarIrradiance4? = SolarIrradiance4()
+    @Json(name = "CloudCover") var CloudCover: Int? = null,
+    @Json(name = "Evapotranspiration") var Evapotranspiration: Evapotranspiration2? = Evapotranspiration2(),
+    @Json(name = "SolarIrradiance") var SolarIrradiance: SolarIrradiance2? = SolarIrradiance2()
 )
 data class DailyForecasts (
     @Json(name = "Date") var Date: String? = null,
     @Json(name = "EpochDate") var EpochDate: Int? = null,
     @Json(name = "Sun") var Sun: Sun? = Sun(),
     @Json(name = "Moon") var Moon: Moon? = Moon(),
-    @Json(name = "Temperature") var Temperature: Temperature2? = Temperature2(),
-    @Json(name = "RealFeelTemperature") var RealFeelTemperature: RealFeelTemperature2? = RealFeelTemperature2(),
-    @Json(name = "RealFeelTemperatureShade") var RealFeelTemperatureShade: RealFeelTemperatureShade2? = RealFeelTemperatureShade2(),
+    @Json(name = "Temperature") var Temperature: Temperature1? = Temperature1(),
+    @Json(name = "RealFeelTemperature") var RealFeelTemperature: RealFeelTemperature1? = RealFeelTemperature1(),
+    @Json(name = "RealFeelTemperatureShade") var RealFeelTemperatureShade: RealFeelTemperatureShade1? = RealFeelTemperatureShade1(),
     @Json(name = "HoursOfSun") var HoursOfSun: Double? = null,
     @Json(name = "DegreeDaySummary") var DegreeDaySummary: DegreeDaySummary? = DegreeDaySummary(),
     @Json(name = "AirAndPollen") var AirAndPollen: List<AirAndPollen> = arrayListOf(),
@@ -291,8 +289,3 @@ data class DailyForecasts (
     @Json(name = "MobileLink") var MobileLink: String? = null,
     @Json(name = "Link") var Link: String? = null
 )
-
-
-
-
-

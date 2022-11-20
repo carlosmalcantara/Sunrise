@@ -61,7 +61,7 @@ fun WeatherDisplayDailyCard(
         ) {
             Column() {
                 AsyncImage(
-                    model = "https://developer.accuweather.com/sites/default/files/07-s.png",
+                    model = "https://developer.accuweather.com/sites/default/files/${daily.icono}-s.png",
                     contentDescription = "icono principal daily",
                     modifier = Modifier
                         .padding(
@@ -71,7 +71,7 @@ fun WeatherDisplayDailyCard(
                         .size(135.dp)
                 )
                 Text(
-                    text = "Partly Sunny",
+                    text = "${daily.icono_frase}",
                     Modifier.padding(10.dp),
                     style = TextStyle(
                         fontSize = 18.sp,

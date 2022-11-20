@@ -45,26 +45,26 @@ fun MainScreen() {
 
                 details = listOf(
                     WeatherDetails(
-                        data = acceso.resultado.presion.toString(),
-                        units = "Presionsure",
+                        units = "Pressure",
+                        data = "${acceso.resultado.presion.toString()} mb",
                         R.drawable.pressure,
                         color = GreyCard
                     ),
                     WeatherDetails(
-                        data = acceso.resultado.viento.toString(),
                         units = "Wind",
+                        data = "${acceso.resultado.viento.toString()} km/h",
                         R.drawable.wind2,
                         color = GreyCard
                     ),
                     WeatherDetails(
-                        data = acceso.resultado.uv.toString(),
                         units = "UV Index",
+                        data = acceso.resultado.uv_text.toString(),
                         R.drawable.rays,
                         color = GreyCard
                     ),
                     WeatherDetails(
-                        data = acceso.resultado.humedad_relativa.toString(),
                         units = "Humidity",
+                        data = "${acceso.resultado.humedad_relativa.toString()} %",
                         R.drawable.water,
                         color = GreyCard
                     )
@@ -84,6 +84,9 @@ fun MainScreen() {
 
     }
 }
+
+
+
 
 
 

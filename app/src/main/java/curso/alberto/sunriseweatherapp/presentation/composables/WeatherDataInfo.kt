@@ -15,7 +15,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import curso.alberto.sunriseweatherapp.data.WeatherApi.models.WeatherModelDetails
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 
 
@@ -23,6 +22,7 @@ import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 
 @Composable
 fun WeatherDataInfo(
+
     details: List<WeatherDetails>
 ) {
 
@@ -49,7 +49,7 @@ fun WeatherDataInfo(
 
 @Composable
 fun DetailsItem(
-    details : WeatherDetails
+    details: WeatherDetails
 )  {
     BoxWithConstraints(
         modifier = Modifier
@@ -77,16 +77,18 @@ fun DetailsItem(
         Column(
             modifier = Modifier.align(Alignment.BottomEnd)
         ) {
-            /*  Text (
-                text = details.data,
-                lineHeight = 15.sp
-            ) */
 
             Text(
+                modifier = Modifier
+                    .align(Alignment.End),
                 text = details.units,
                 lineHeight = 11.sp
-
             )
+             Text (
+                text = details.data,
+                lineHeight = 15.sp
+            )
+
         }
 
     }

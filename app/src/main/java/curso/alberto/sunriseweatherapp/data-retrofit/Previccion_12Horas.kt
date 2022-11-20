@@ -123,7 +123,7 @@ data class Ice (
     @Json(name = "UnitType") var UnitType: Int?= null
 )
 data class Evapotranspiration (
-    @Json(name = "Value") var Value: Int?= null,
+    @Json(name = "Value") var Value: Double?= null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int?= null
 )

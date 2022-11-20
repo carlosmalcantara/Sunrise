@@ -61,6 +61,7 @@ interface QuotesApi {
         @Query("details") details: Boolean,
         @Query("metric") metric: Boolean
     ): Response<List<Condiciones>>
+
     @GET("currentconditions/v1/{localidad}/historical/24")
     suspend fun get_condiciones_actuales_24(
         @Path("localidad") localidad: String,

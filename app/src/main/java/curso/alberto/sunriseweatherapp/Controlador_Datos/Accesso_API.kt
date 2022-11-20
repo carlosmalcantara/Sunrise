@@ -9,12 +9,13 @@ import kotlinx.coroutines.launch
 
 class Accesso_API {
 
-    val api_key1 = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
-    val api_key3 = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
-    val api_key2 = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
-    val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
+    val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
+   // val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
+    // val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
+    //val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
 
     var resultado: Datos_Tiempo = Datos_Tiempo()
+
 
     var datos_adquiridos: Boolean = false
 
@@ -33,10 +34,12 @@ class Accesso_API {
 
         // launching a new coroutine
         GlobalScope.launch {
-            val busqueda = quotesApi.get_localidad_nombre(nombre, apikey = api_key)
+      //      val busqueda = quotesApi.get_localidad_nombre(nombre, apikey = api_key)
+            var nombreB = "sevilla"
+            val busqueda = quotesApi.get_localidad_nombre(nombreB, apikey = api_key)
             val ciudades = busqueda.body()
             var key = "308526"
-            key = ciudades?.get(0)?.Key.toString()
+    //        key = ciudades?.get(0)?.Key.toString()
 
 
 
@@ -67,10 +70,12 @@ class Accesso_API {
 
             resultado.humedad_relativa = cond_act?.get(0)?.RelativeHumidity
 
-            resultado.icono = 1
+            resultado.icono = cond_act?.get(0)?.WeatherIcon
+            resultado.icono_frase = cond_act?.get(0)?.WeatherText
 
             resultado.presion = cond_act?.get(0)?.Pressure?.Metric?.Value
             resultado.uv=cond_act?.get(0)?.UVIndex
+            resultado.uv_text = cond_act?.get(0)?.UVIndexText
 
             if (prev_12h != null) {
                 for (previccion_hora in prev_12h) {

@@ -106,7 +106,7 @@ data class Ceiling1 (
     @SerializedName("UnitType" ) var UnitType: Int? = null
 )
 data class TotalLiquid (
-    @SerializedName("Value") var Value: Int? = null,
+    @SerializedName("Value") var Value: Double? = null,
     @SerializedName("Unit" ) var Unit: String? = null,
     @SerializedName("UnitType" ) var UnitType: Int? = null
 )

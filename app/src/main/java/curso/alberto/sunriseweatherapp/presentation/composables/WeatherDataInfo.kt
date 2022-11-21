@@ -28,20 +28,18 @@ fun WeatherDataInfo(
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
-        modifier = Modifier.fillMaxHeight(),
        // horizontalArrangement = Arrangement.SpaceBetween,
         // content padding
         contentPadding = PaddingValues(
             start = 5.dp,
-            top = 13.dp,
+            top = 8.dp,
             end = 5.dp,
-            bottom = 16.dp
+            bottom = 5.dp
         ),
 
        content = {
            items(details.size) {
               DetailsItem(details = details[it])
-
             }
         })
 }

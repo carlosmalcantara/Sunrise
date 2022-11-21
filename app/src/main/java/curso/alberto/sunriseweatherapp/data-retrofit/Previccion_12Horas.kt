@@ -103,12 +103,12 @@ data class Ceiling (
     @Json(name = "UnitType") var UnitType: Int?= null
 )
 data class TotalLiquid (
-    @Json(name = "Value") var Value: Int?= null,
+    @Json(name = "Value") var Value: Double?= null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int?= null
 )
 data class Rain (
-    @Json(name = "Value") var Value: Int?= null,
+    @Json(name = "Value") var Value: Double?= null,
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int?= null
 )

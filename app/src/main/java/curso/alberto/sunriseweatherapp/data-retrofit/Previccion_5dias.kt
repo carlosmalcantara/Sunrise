@@ -120,6 +120,7 @@ data class Speed2 (
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
+
 data class Direction2 (
     @Json(name = "Degrees") var Degrees: Int? = null,
     @Json(name = "Localized") var Localized: String? = null,
@@ -159,6 +160,8 @@ data class SolarIrradiance1 (
     @Json(name = "Unit") var Unit: String? = null,
     @Json(name = "UnitType") var UnitType: Int? = null
 )
+
+
 data class Day (
     @Json(name = "Icon") var Icon: Int? = null,
     @Json(name = "IconPhrase") var IconPhrase: String? = null,

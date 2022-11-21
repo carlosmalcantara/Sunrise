@@ -3,6 +3,7 @@ package curso.alberto.sunriseweatherapp.Controlador_Datos
 
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
+import curso.alberto.sunriseweatherapp.`data-retrofit`.Temperature
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 import java.util.Date
 
@@ -17,13 +18,15 @@ data class Datos_Tiempo(
     var icono: Int? = 1,
     var icono_frase: String? = "Cloudy",
 
-    var lista_temperatura_hora: ArrayList<Double> = ArrayList(),
-    var lista_hora: ArrayList<Date> = ArrayList(),
-    var lista_icono_hora: ArrayList<Int> = ArrayList(),
+
+    //12horas
+    var lista_temperatura_hora: Double = 18.3,
+    var lista_hora: String = "12:00",
+    var lista_icono_hora: Int = 3,
 
 
 
-
+    // Detalles
     var presion: Double? = 1020.0,
     var direccion_viento: String? = "Sur",
     var viento: Double? = 30.0,
@@ -35,6 +38,8 @@ data class Datos_Tiempo(
     val data: String? = "45",
     val units:String? = "km/h",
     val color: Color? = GreyCard,
+
+
 
 
     )

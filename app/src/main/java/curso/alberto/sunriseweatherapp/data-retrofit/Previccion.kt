@@ -132,6 +132,7 @@ data class WindGust3 (
     @Json(name = "Speed") var Speed: Speed6? = Speed6(),
     @Json(name = "Direction") var Direction: Direction6? = Direction6()
 )
+
 data class TotalLiquid3 (
     @Json(name = "Value") var Value: Double? = null,
     @Json(name = "Unit") var Unit: String? = null,
@@ -177,7 +178,7 @@ data class Day (
     @Json(name = "IceProbability") var IceProbability: Int? = null,
     @Json(name = "Wind") var Wind: Wind3? = Wind3(),
     @Json(name = "WindGust") var WindGust: WindGust3? = WindGust3(),
-    @Json(name = "TotalLiquid") var TotalLiquid: TotalLiquid3? = TotalLiquid3(),
+    @Json(name = "TotalLiquid") var TotalLiquid: TotalLiquid? = TotalLiquid(),
     @Json(name = "Rain") var Rain: Rain3? = Rain3(),
     @Json(name = "Snow") var Snow: Snow3? = Snow3(),
     @Json(name = "Ice") var Ice: Ice3? = Ice3(),

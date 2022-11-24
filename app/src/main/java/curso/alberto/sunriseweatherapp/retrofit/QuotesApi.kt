@@ -1,8 +1,8 @@
 package alfredo.retrofit.retrofit
 
 import com.alfredo.pruebarestapi.data_retrofit.*
-import curso.alberto.sunriseweatherapp.`data-retrofit`.Previccion_12Horas
-import curso.alberto.sunriseweatherapp.`data-retrofit`.Previccion_5dias
+//import curso.alberto.sunriseweatherapp.`data-retrofit`.Previccion_12Horas
+//import curso.alberto.sunriseweatherapp.`data-retrofit`.Previccion_5dias
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

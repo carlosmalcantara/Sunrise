@@ -2,6 +2,7 @@ package curso.alberto.sunriseweatherapp.presentation
 
 import android.annotation.SuppressLint
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -26,7 +27,7 @@ import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 @Composable
 fun MainScreen() {
     val acceso = Accesso_API()
-    acceso.coger_tiempo_nombre("")
+    acceso.corger_tiempo_posicion_gps(41.3841666667f,2.17611111111f)
     while (acceso.datos_adquiridos == false) {}
 
     Scaffold(
@@ -49,8 +50,11 @@ fun MainScreen() {
                 elevation = 0.dp,
                 shape = RoundedCornerShape(10.dp)
             ) {
+                Log.println(Log.ASSERT, "", "Ciudad antes de llamar a WeatherDisplayDailyCard:"+acceso.resultado.toString())
+
                 WeatherDisplayDailyCard(acceso.resultado)
             }
+
             WeatherDataInfo(
 
                 details = listOf(
@@ -83,7 +87,7 @@ fun MainScreen() {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-
+/*
             HourlyForecastSheet(hourlyForecast = List(12) {
                 HourlyForecast(
                  //   lista_hora = acceso.resultado.lista_hora,
@@ -95,6 +99,8 @@ fun MainScreen() {
                     temperature = "18º"
                 )
             })
+
+ */
             Spacer(modifier = Modifier.height(8.dp))
 
 

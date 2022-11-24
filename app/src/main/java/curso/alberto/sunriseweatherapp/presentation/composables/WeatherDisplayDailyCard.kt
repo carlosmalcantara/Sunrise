@@ -1,5 +1,6 @@
 package curso.alberto.sunriseweatherapp.presentation.composables
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +21,8 @@ import java.util.Date
 fun WeatherDisplayDailyCard(
     daily: Datos_Tiempo
 ) {
+    Log.println(Log.ASSERT, "", "Ciudad dentro de WeatherDisplayDailyCard:"+daily.ciudad.toString())
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,

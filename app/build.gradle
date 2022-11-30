@@ -57,6 +57,8 @@ dependencies {
 
     //AsyncImage
     implementation("io.coil-kt:coil-compose:2.2.2")
+    // Coil -> cargar imagenes
+    implementation("io.coil-kt:coil-compose:2.2.2")
     //GPS servicios Google
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     // Retrofit2

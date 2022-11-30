@@ -1,19 +1,27 @@
 package curso.alberto.sunriseweatherapp.presentation.composables
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
+import coil.request.ImageRequest
 import curso.alberto.sunriseweatherapp.Controlador_Datos.Datos_Tiempo
+import curso.alberto.sunriseweatherapp.R
 import java.text.SimpleDateFormat
 import java.util.Date
+import kotlin.math.roundToInt
 
 
 @Composable
@@ -25,7 +33,9 @@ fun WeatherDisplayDailyCard(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
     ) {
-        Column() {
+        Column(
+            modifier = Modifier.padding(start= 20.dp)
+        ) {
             Text(
                 text = "${daily.ciudad}",
                 style = TextStyle(fontSize = 35.sp)
@@ -37,7 +47,7 @@ fun WeatherDisplayDailyCard(
                 style = TextStyle(fontSize = 18.sp)
             )
             Text(
-                text = "${daily.temperatura_actual}º",
+                text = "${daily.temperatura_actual?.roundToInt()}º",
                 style = TextStyle(
                     fontSize = 100.sp,
                     fontWeight = FontWeight.Light,
@@ -45,7 +55,7 @@ fun WeatherDisplayDailyCard(
                 )
             )
             Text(
-                text = "${daily.temperatura_minima}º / ${daily.temperatura_maxima}º",
+                text = "${daily.temperatura_minima?.roundToInt()}º / ${daily.temperatura_maxima?.roundToInt()}º",
                 Modifier.padding(10.dp),
                 style = TextStyle(
                     fontSize = 18.sp,
@@ -60,16 +70,21 @@ fun WeatherDisplayDailyCard(
             horizontalArrangement = Arrangement.End
         ) {
             Column() {
-                AsyncImage(
-                    model = "https://developer.accuweather.com/sites/default/files/${daily.icono}-s.png",
-                    contentDescription = "icono principal daily",
-                    modifier = Modifier
-                        .padding(
-                            top = 10.dp,
-                            end = 15.dp
-                        )
-                        .size(135.dp)
-                )
+
+                    SubcomposeAsyncImage(
+                        model = "https://developer.accuweather.com/sites/default/files/${"%02d".format(daily.icono)}-s.png",
+                        loading = {
+                            CircularProgressIndicator()
+                        },
+                        contentDescription = stringResource(R.string.app_name),
+                        modifier = Modifier
+                            .padding(
+                                top = 10.dp,
+                                end = 15.dp
+                            )
+                            .size(180.dp)
+                    )
+
                 Text(
                     text = "${daily.icono_frase}",
                     Modifier.padding(10.dp),
@@ -86,4 +101,7 @@ fun WeatherDisplayDailyCard(
 
     }
 }
+
+
+
 

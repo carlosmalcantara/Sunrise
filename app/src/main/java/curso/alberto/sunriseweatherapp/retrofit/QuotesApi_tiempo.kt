@@ -1,15 +1,13 @@
 package alfredo.retrofit.retrofit
 
 import com.alfredo.pruebarestapi.data_retrofit.*
-//import curso.alberto.sunriseweatherapp.`data-retrofit`.Previccion_12Horas
-//import curso.alberto.sunriseweatherapp.`data-retrofit`.Previccion_5dias
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 
-interface QuotesApi {
+interface QuotesApi_Tiempo {
     @GET("locations/v1/Regions")
     suspend fun get_Regions(
         @Query("apikey") apikey: String

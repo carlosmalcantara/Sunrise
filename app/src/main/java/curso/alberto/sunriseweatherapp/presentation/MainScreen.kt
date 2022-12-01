@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import curso.alberto.sunriseweatherapp.Controlador_Datos.Accesso_API
 import curso.alberto.sunriseweatherapp.Controlador_Datos.Datos_Tiempo
+import curso.alberto.sunriseweatherapp.Controlador_Datos.LocationTrack
 import curso.alberto.sunriseweatherapp.R
 import curso.alberto.sunriseweatherapp.presentation.composables.*
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
@@ -27,8 +28,14 @@ import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 @Composable
 fun MainScreen() {
     val acceso = Accesso_API()
-    acceso.corger_tiempo_posicion_gps(41.3841666667f,2.17611111111f)
+    //acceso.coger_tiempo_posicion_gps(41.3841666667f,2.17611111111f)
+    var localizacion: LocationTrack =  LocationTrack()
+    localizacion.localizar()
+    while (localizacion.datos_adquiridos == false) {}
+    Log.println(Log.ASSERT, "", "ciudad:" + localizacion.nombre)
+    acceso.coger_tiempo_nombre(localizacion.nombre)
     while (acceso.datos_adquiridos == false) {}
+    Log.println(Log.ASSERT, "", "datos:"+acceso.resultado)
 
     Scaffold(
         modifier = Modifier
@@ -50,8 +57,6 @@ fun MainScreen() {
                 elevation = 0.dp,
                 shape = RoundedCornerShape(10.dp)
             ) {
-                Log.println(Log.ASSERT, "", "Ciudad antes de llamar a WeatherDisplayDailyCard:"+acceso.resultado.toString())
-
                 WeatherDisplayDailyCard(acceso.resultado)
             }
 

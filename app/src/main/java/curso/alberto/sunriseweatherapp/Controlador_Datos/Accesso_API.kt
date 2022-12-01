@@ -112,29 +112,29 @@ class Accesso_API {
             resultado.Temp_max_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value!!
             resultado.Temp_min_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value!!
 
-            resultado.fecha_dia_2 = prev_5d?.DailyForecasts?.get(0)?.Date.toString()
-            resultado.frase_dia_2 = prev_5d?.DailyForecasts?.get(0)?.Day?.ShortPhrase.toString()
-            resultado.icono_dia_2 = prev_5d?.DailyForecasts?.get(0)?.Day?.Icon!!
-            resultado.Temp_max_dia_2 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value!!
-            resultado.Temp_min_dia_2 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value!!
+            resultado.fecha_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Date.toString()
+            resultado.frase_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Day?.Icon!!
+            resultado.Temp_max_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Temperature?.Minimum?.Value!!
 
-            resultado.fecha_dia_3 = prev_5d?.DailyForecasts?.get(0)?.Date.toString()
-            resultado.frase_dia_3 = prev_5d?.DailyForecasts?.get(0)?.Day?.ShortPhrase.toString()
-            resultado.icono_dia_3 = prev_5d?.DailyForecasts?.get(0)?.Day?.Icon!!
-            resultado.Temp_max_dia_3 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value!!
-            resultado.Temp_min_dia_3 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value!!
+            resultado.fecha_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Date.toString()
+            resultado.frase_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Day?.Icon!!
+            resultado.Temp_max_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Temperature?.Minimum?.Value!!
 
-            resultado.fecha_dia_4 = prev_5d?.DailyForecasts?.get(0)?.Date.toString()
-            resultado.frase_dia_4 = prev_5d?.DailyForecasts?.get(0)?.Day?.ShortPhrase.toString()
-            resultado.icono_dia_4 = prev_5d?.DailyForecasts?.get(0)?.Day?.Icon!!
-            resultado.Temp_max_dia_4 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value!!
-            resultado.Temp_min_dia_4 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value!!
+            resultado.fecha_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Date.toString()
+            resultado.frase_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Day?.Icon!!
+            resultado.Temp_max_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Temperature?.Minimum?.Value!!
 
-            resultado.fecha_dia_5 = prev_5d?.DailyForecasts?.get(0)?.Date.toString()
-            resultado.frase_dia_5 = prev_5d?.DailyForecasts?.get(0)?.Day?.ShortPhrase.toString()
-            resultado.icono_dia_5 = prev_5d?.DailyForecasts?.get(0)?.Day?.Icon!!
-            resultado.Temp_max_dia_5 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value!!
-            resultado.Temp_min_dia_5 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value!!
+            resultado.fecha_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Date.toString()
+            resultado.frase_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Day?.Icon!!
+            resultado.Temp_max_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Temperature?.Minimum?.Value!!
 
 
 /*

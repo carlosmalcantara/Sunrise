@@ -15,16 +15,16 @@ import org.json.JSONObject
 
 class Accesso_API {
 
-    // val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
+   //  val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
    // val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
-    // val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
-    // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
-    val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
-    // val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
-    //val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
+   //  val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
+   // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
+   //  val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
+   //  val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
+     val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
     // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
 
-    // val api_key = "jhaqd"
+    // val api_key = "Nik2Iq1iV0ME7ipjITGWlrQDS04tZgbw"
 
     @RequiresApi(Build.VERSION_CODES.O)
     var resultado: Datos_Tiempo = Datos_Tiempo()
@@ -90,63 +90,84 @@ class Accesso_API {
 
 
             // 12 HORAS
-            /*
-            if (prev_12h != null) {
-                for (previccion_hora in prev_12h) {
-                    val d = previccion_hora.DateTime
-                    val i = previccion_hora.WeatherIcon!!
-                    val t = previccion_hora.Temperature?.Value!!
+            resultado.hora_1 = prev_12h?.get(0)?.DateTime?.toString().toString()
+            resultado.temperatura_hora_1 = prev_12h?.get(0)?.Temperature?.Value!!
+            resultado.icono_hora_1 = prev_12h.get(0).WeatherIcon!!
 
-                    resultado.lista_hora = d.toString()
-                    if (i != null) resultado.lista_icono_hora = i
-                    resultado.lista_temperatura_hora = t.toDouble().toInt()
-                }
-                return@launch
-                resultado.lista_hora
-                resultado.lista_icono_hora
-                resultado.lista_temperatura_hora
-                }
-            }
+            resultado.hora_2 = prev_12h.get(1).DateTime.toString()
+            resultado.temperatura_hora_2 = prev_12h.get(1).Temperature?.Value!!
+            resultado.icono_hora_2 = prev_12h.get(1).WeatherIcon!!
 
-             */
+            resultado.hora_3 = prev_12h.get(2).DateTime.toString()
+            resultado.temperatura_hora_3 = prev_12h.get(2).Temperature?.Value!!
+            resultado.icono_hora_3 = prev_12h.get(2).WeatherIcon!!
 
+            resultado.hora_4 = prev_12h?.get(3)?.DateTime.toString()
+            resultado.temperatura_hora_4 = prev_12h.get(3).Temperature?.Value!!
+            resultado.icono_hora_5 = prev_12h.get(3).WeatherIcon!!
+
+            resultado.hora_5 = prev_12h.get(4).DateTime.toString()
+            resultado.temperatura_hora_5 = prev_12h?.get(4)?.Temperature?.Value!!
+            resultado.icono_hora_5 = prev_12h?.get(4)?.WeatherIcon!!
+
+            resultado.hora_6 = prev_12h?.get(5)?.DateTime.toString()
+            resultado.temperatura_hora_6 = prev_12h?.get(5)?.Temperature?.Value!!
+            resultado.icono_hora_6 = prev_12h?.get(5)?.WeatherIcon!!
+
+            resultado.hora_7 = prev_12h?.get(6)?.DateTime.toString()
+            resultado.temperatura_hora_7 = prev_12h?.get(6)?.Temperature?.Value!!
+            resultado.icono_hora_7 = prev_12h?.get(6)?.WeatherIcon!!
+
+            resultado.hora_8 = prev_12h?.get(7)?.DateTime.toString()
+            resultado.temperatura_hora_8 = prev_12h?.get(7)?.Temperature?.Value!!
+            resultado.icono_hora_8 = prev_12h?.get(7)?.WeatherIcon!!
+
+            resultado.hora_9 = prev_12h?.get(8)?.DateTime.toString()
+            resultado.temperatura_hora_9 = prev_12h?.get(8)?.Temperature?.Value!!
+            resultado.icono_hora_9 = prev_12h?.get(8)?.WeatherIcon!!
+
+            resultado.hora_10 = prev_12h?.get(9)?.DateTime.toString()
+            resultado.temperatura_hora_10 = prev_12h?.get(9)?.Temperature?.Value!!
+            resultado.icono_hora_10 = prev_12h?.get(9)?.WeatherIcon!!
+
+            resultado.hora_11 = prev_12h?.get(10)?.DateTime.toString()
+            resultado.temperatura_hora_11 = prev_12h?.get(10)?.Temperature?.Value!!
+            resultado.icono_hora_11 = prev_12h?.get(10)?.WeatherIcon!!
+
+            resultado.hora_12 = prev_12h?.get(11)?.DateTime.toString()
+            resultado.temperatura_hora_12 = prev_12h?.get(11)?.Temperature?.Value!!
+            resultado.icono_hora_12 = prev_12h?.get(11)?.WeatherIcon!!
 
             // 5 dias
-            /*
-            val list_5days = ArrayList<Datos_Tiempo>()
-            val mainObject = JSONObject()
-            val days = mainObject.getJSONObject("Previccion_5dias").getJSONObject("DailyForecasts")
-            if(prev_5d != null) {
-                for (i in 0 until days.length()) {
-                        resultado.date_5days = prev_5d.DailyForecasts[0].Date.toString()
-                        resultado.icon_5days = prev_5d.DailyForecasts[0].Day?.Icon!!
-                        resultado.temperature_min_5days = prev_5d.DailyForecasts[0].Temperature?.Minimum?.Value!!
-                        resultado.temperature_max_5days = prev_5d.DailyForecasts[0].Temperature?.Maximum?.Value!!
-                        resultado.icon_frase_5days = prev_5d.DailyForecasts[0].Day?.IconPhrase.toString()
-                }
-            }
-*/
-            var forecast5days = ArrayList<Previccion_5dias>()
-            for (i in  forecast5days ) {
-                if (prev_5d != null) {
-                    resultado.date_5days = prev_5d.DailyForecasts[0].Date.toString()
-                }
-                if (prev_5d != null) {
-                    resultado.icon_5days = prev_5d.DailyForecasts[0].Day?.Icon!!
-                }
-                if (prev_5d != null) {
-                    resultado.temperature_min_5days =
-                        prev_5d.DailyForecasts[0].Temperature?.Minimum?.Value!!
-                }
-                if (prev_5d != null) {
-                    resultado.temperature_max_5days =
-                        prev_5d.DailyForecasts[0].Temperature?.Maximum?.Value!!
-                }
-                if (prev_5d != null) {
-                    resultado.icon_frase_5days =
-                        prev_5d.DailyForecasts[0].Day?.IconPhrase.toString()
-                }
-            }
+            resultado.fecha_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Date.toString()
+            resultado.frase_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Day?.Icon!!
+            resultado.Temp_max_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value!!
+
+            resultado.fecha_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Date.toString()
+            resultado.frase_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Day?.Icon!!
+            resultado.Temp_max_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_2 = prev_5d?.DailyForecasts?.get(1)?.Temperature?.Minimum?.Value!!
+
+            resultado.fecha_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Date.toString()
+            resultado.frase_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Day?.Icon!!
+            resultado.Temp_max_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_3 = prev_5d?.DailyForecasts?.get(2)?.Temperature?.Minimum?.Value!!
+
+            resultado.fecha_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Date.toString()
+            resultado.frase_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Day?.Icon!!
+            resultado.Temp_max_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_4 = prev_5d?.DailyForecasts?.get(3)?.Temperature?.Minimum?.Value!!
+
+            resultado.fecha_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Date.toString()
+            resultado.frase_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Day?.ShortPhrase.toString()
+            resultado.icono_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Day?.Icon!!
+            resultado.Temp_max_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Temperature?.Maximum?.Value!!
+            resultado.Temp_min_dia_5 = prev_5d?.DailyForecasts?.get(4)?.Temperature?.Minimum?.Value!!
 
 
 

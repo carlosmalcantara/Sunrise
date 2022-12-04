@@ -27,16 +27,20 @@ import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen() {
+    /*
+        Acceso a los datos climaticos por localización por IP
+     */
+    var localizacion: LocationTrack =  LocationTrack()
     val acceso = Accesso_API()
     //acceso.coger_tiempo_posicion_gps(41.3841666667f,2.17611111111f)
-    var localizacion: LocationTrack =  LocationTrack()
     localizacion.localizar()
     while (localizacion.datos_adquiridos == false) {}
-    Log.println(Log.ASSERT, "", "ciudad:" + localizacion.nombre)
     acceso.coger_tiempo_nombre(localizacion.nombre)
     while (acceso.datos_adquiridos == false) {}
-    Log.println(Log.ASSERT, "", "datos:"+acceso.resultado)
 
+    /*
+        Creación de la vista
+     */
     Scaffold(
         modifier = Modifier
             .background(Color.White)

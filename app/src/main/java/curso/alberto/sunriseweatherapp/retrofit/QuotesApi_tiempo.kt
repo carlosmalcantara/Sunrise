@@ -6,7 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-
+/*
+    Interface que representa la obtención de los datos climáticos
+ */
 interface QuotesApi_Tiempo {
     @GET("locations/v1/Regions")
     suspend fun get_Regions(

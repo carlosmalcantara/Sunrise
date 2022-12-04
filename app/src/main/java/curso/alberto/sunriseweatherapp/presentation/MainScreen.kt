@@ -2,22 +2,35 @@ package curso.alberto.sunriseweatherapp.presentation
 
 import android.annotation.SuppressLint
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import curso.alberto.sunriseweatherapp.Controlador_Datos.Accesso_API
 import curso.alberto.sunriseweatherapp.R
 import curso.alberto.sunriseweatherapp.presentation.composables.*
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
+import curso.alberto.sunriseweatherapp_.presentation.composables.composables.AppBar.MainViewModel
+import curso.alberto.sunriseweatherapp_.presentation.composables.composables.AppBar.SearchWidgetState
 import java.time.*
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -26,7 +39,13 @@ import java.util.*
 @RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "SimpleDateFormat")
 @Composable
-fun MainScreen() {
+fun MainScreen(
+
+
+    MainViewModel: MainViewModel
+
+
+) {
     val acceso = Accesso_API()
     acceso.coger_tiempo_nombre("")
     while (acceso.datos_adquiridos == false) {
@@ -40,12 +59,36 @@ fun MainScreen() {
             .fillMaxSize()
     ) {
 
+        val searchWidgetState by MainViewModel.searchWidgetState
+        val searchTextState by MainViewModel.searchTextState
 
         Scaffold(
             modifier = Modifier
                 .fillMaxSize(),
 
-            topBar = { TopBarMenu() },
+       //     topBar = { TopBarMenu() },
+
+            topBar = {
+
+                MainAppBar(
+                    searchWidgetState = searchWidgetState,
+                    searchTextState = searchTextState,
+                    onTextChange = {
+                        MainViewModel.updateSearchTextState(newValue = it)
+                    },
+                    onCloseClicked = {
+                        MainViewModel.updateSearchWidgetState(newValue = SearchWidgetState.CLOSED)
+                    },
+                    onSearchClicked = {
+                        Log.d("Searched Text", it)
+                    },
+                    onSearchTriggered = {
+                        MainViewModel.updateSearchWidgetState(newValue = SearchWidgetState.OPENED)
+                    }
+                )
+            }
+
+
         ) {
 
 
@@ -55,6 +98,7 @@ fun MainScreen() {
                     .fillMaxWidth()
                     .padding(20.dp)
                     .verticalScroll(rememberScrollState())
+
 
             ) {
                 Card(
@@ -319,6 +363,160 @@ fun MainScreen() {
 }
 
 
+
+
+
+// APPBAR
+
+@Composable
+fun MainAppBar(
+    searchWidgetState: SearchWidgetState,
+    searchTextState: String,
+    onTextChange: (String) -> Unit,
+    onCloseClicked: () -> Unit,
+    onSearchClicked: (String) -> Unit,
+    onSearchTriggered: () -> Unit
+) {
+    when (searchWidgetState) {
+        SearchWidgetState.CLOSED -> {
+            DefaultAppBar(
+                onSearchClicked = onSearchTriggered
+            )
+        }
+        SearchWidgetState.OPENED -> {
+            SearchAppBar(
+                text = searchTextState,
+                onTextChange = onTextChange,
+                onCloseClicked = onCloseClicked,
+                onSearchClicked = onSearchClicked,
+
+            )
+        }
+    }
+}
+
+@Composable
+fun DefaultAppBar(onSearchClicked: () -> Unit) {
+    TopAppBar(
+        elevation = 0.dp,
+        backgroundColor = Color.White,
+        title = {
+            Text(
+                text = "Sunrise Weather"
+            )
+        },
+        actions = {
+            IconButton(
+                onClick = { onSearchClicked() }
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Search,
+                    contentDescription = "Search Icon",
+                    tint = Color.Black
+                )
+            }
+        }
+    )
+}
+
+@Composable
+fun SearchAppBar(
+    text: String,
+    onTextChange: (String) -> Unit,
+    onCloseClicked: () -> Unit,
+    onSearchClicked: (String) -> Unit,
+) {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp),
+        elevation = 0.dp,
+        color = MaterialTheme.colors.contentColorFor(Color.White)
+    ) {
+        TextField(
+            modifier = Modifier
+            .fillMaxWidth()
+            .focusable(enabled = true)
+            .background(color = Color.White),
+            value = text,
+
+            onValueChange = {
+                onTextChange(it)
+            },
+            placeholder = {
+                Text(
+                    modifier = Modifier
+                        .alpha(ContentAlpha.medium),
+                    text = "Search here...",
+                    color = Color.Black
+                )
+            },
+            textStyle = TextStyle(
+                fontSize = MaterialTheme.typography.subtitle1.fontSize
+            ),
+            singleLine = true,
+            leadingIcon = {
+                IconButton(
+                    modifier = Modifier
+                        .alpha(ContentAlpha.medium),
+                    onClick = {}
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search Icon",
+                        tint = Color.Black
+                    )
+                }
+            },
+            trailingIcon = {
+                IconButton(
+                    onClick = {
+                        if (text.isNotEmpty()) {
+                            onTextChange("")
+                        } else {
+                            onCloseClicked()
+                        }
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Close Icon",
+                        tint = Color.Black
+                    )
+                }
+            },
+            keyboardOptions = KeyboardOptions(
+                imeAction = ImeAction.Search
+            ),
+            keyboardActions = KeyboardActions(
+                onSearch = {
+                    onSearchClicked(text)
+                }
+            ),
+            colors = TextFieldDefaults.textFieldColors(
+                backgroundColor = Color.Transparent,
+                cursorColor = Color.Black.copy(alpha = ContentAlpha.medium)
+            ))
+    }
+}
+
+
+@Composable
+@Preview
+fun DefaultAppBarPreview() {
+    DefaultAppBar(onSearchClicked = {})
+}
+
+@Composable
+@Preview
+fun SearchAppBarPreview() {
+    SearchAppBar(
+        text = "Some random text",
+        onTextChange = {},
+        onCloseClicked = {},
+        onSearchClicked = {}
+    )
+}
 
 
 

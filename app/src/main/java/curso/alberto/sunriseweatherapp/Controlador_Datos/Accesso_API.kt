@@ -19,10 +19,10 @@ class Accesso_API {
    // val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
    //  val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
    // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
-   //  val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
+    // val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
    //  val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
-     val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
-    // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
+   //  val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
+     val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
 
     // val api_key = "Nik2Iq1iV0ME7ipjITGWlrQDS04tZgbw"
 
@@ -104,7 +104,7 @@ class Accesso_API {
 
             resultado.hora_4 = prev_12h?.get(3)?.DateTime.toString()
             resultado.temperatura_hora_4 = prev_12h.get(3).Temperature?.Value!!
-            resultado.icono_hora_5 = prev_12h.get(3).WeatherIcon!!
+            resultado.icono_hora_4 = prev_12h.get(3).WeatherIcon!!
 
             resultado.hora_5 = prev_12h.get(4).DateTime.toString()
             resultado.temperatura_hora_5 = prev_12h?.get(4)?.Temperature?.Value!!

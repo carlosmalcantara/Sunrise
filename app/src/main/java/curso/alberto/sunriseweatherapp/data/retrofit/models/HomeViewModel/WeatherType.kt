@@ -1,15 +1,15 @@
-package curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel
+package curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel
 
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
 import curso.alberto.sunriseweatherapp.R
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.ClearBg
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.CloudyBg
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.RainBg
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.ShowersBg
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.SnowBg
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.StormBg
-import curso.alberto.sunriseweatherapp.`data-retrofit`.HomeViewModel.WeatherType.WeatherBackground.SunnyBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.ClearBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.CloudyBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.RainBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.ShowersBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.SnowBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.StormBg
+import curso.alberto.sunriseweatherapp.data.retrofit.models.HomeViewModel.WeatherType.WeatherBackground.SunnyBg
 import curso.alberto.sunriseweatherapp.ui.theme.*
 
 sealed class WeatherType(

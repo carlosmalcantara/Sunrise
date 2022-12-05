@@ -18,19 +18,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import curso.alberto.sunriseweatherapp.Controlador_Datos.Accesso_API
 import curso.alberto.sunriseweatherapp.R
 import curso.alberto.sunriseweatherapp.presentation.composables.*
 import curso.alberto.sunriseweatherapp.ui.theme.GreyCard
 import curso.alberto.sunriseweatherapp_.presentation.composables.composables.AppBar.MainViewModel
 import curso.alberto.sunriseweatherapp_.presentation.composables.composables.AppBar.SearchWidgetState
+import curso.alfredo.controlador.Controlador_Datos.Accesso_API
+import curso.alfredo.controlador.Controlador_Datos.Localizacion_IP
 import java.time.*
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -41,16 +40,23 @@ import java.util.*
 @Composable
 fun MainScreen(
 
-
     MainViewModel: MainViewModel
 
-
 ) {
+    /*
+        Acceso a los datos climaticos por localización por IP
+     */
+    var localizacion: Localizacion_IP =  Localizacion_IP()
     val acceso = Accesso_API()
-    acceso.coger_tiempo_nombre("")
-    while (acceso.datos_adquiridos == false) {
-    }
+    //acceso.coger_tiempo_posicion_gps(41.3841666667f,2.17611111111f)
+    localizacion.localizar()
+    while (localizacion.datos_adquiridos == false) {}
+    acceso.coger_tiempo_nombre(localizacion.nombre)
+    while (acceso.datos_adquiridos == false) {}
 
+    /*
+        Creación de la vista
+     */
 
     Surface(
         color = MaterialTheme.colors.background,

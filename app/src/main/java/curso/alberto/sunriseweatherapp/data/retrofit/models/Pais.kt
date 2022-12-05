@@ -1,4 +1,4 @@
-package com.alfredo.pruebarestapi.data_retrofit
+package com.alfredo.data.data_retrofit
 
 import com.squareup.moshi.Json
 

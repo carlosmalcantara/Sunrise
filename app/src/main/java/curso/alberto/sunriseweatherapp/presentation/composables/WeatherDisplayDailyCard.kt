@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
-import curso.alberto.sunriseweatherapp.Controlador_Datos.Datos_Tiempo
 import curso.alberto.sunriseweatherapp.R
+import curso.alfredo.controlador.Controlador_Datos.Datos_Tiempo
 import java.text.SimpleDateFormat
 import java.util.Date
 import kotlin.math.roundToInt

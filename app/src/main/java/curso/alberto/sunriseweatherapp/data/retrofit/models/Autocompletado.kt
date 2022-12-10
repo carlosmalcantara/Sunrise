@@ -14,25 +14,20 @@ data class Autocompletado(
     @Json(name = "LocalizedName")
     var LocalizedName: String?= null,
     @Json(name = "Country")
-    var Country: Country? = Country(),
+    var Country: Country_AdministrativeArea? = Country_AdministrativeArea(),
     @Json(name = "AdministrativeArea")
-    var AdministrativeArea : AdministrativeArea? = AdministrativeArea()
+    var AdministrativeArea : Country_AdministrativeArea? = Country_AdministrativeArea()
 )
 
 
-data class Country (
+data class Country_AdministrativeArea (
     @Json(name = "ID")
     var ID: String? = null,
     @Json(name = "LocalizedName")
     var LocalizedName : String? = null
 )
 
-data class AdministrativeArea (
-    @Json(name = "ID")
-    var ID: String? = null,
-    @Json(name = "LocalizedName")
-    var LocalizedName: String? = null
-)
+
 
 
 

@@ -5,6 +5,7 @@ import alfredo.retrofit.retrofit.RetrofitHelper
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.alfredo.data.data_retrofit.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -31,16 +32,15 @@ class Accesso_API {
         Se poseen varias debido a la limitación en el número de llamadas diarias del servicio
         rest API, accuwheather.com .
      */
-    //  val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
-    // val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
-    //  val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
-    // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
-    //  val api_key = "0DwZcASkZifPFGyFHmaqzlgABglN1XG8"
-    //  val api_key = "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5"
-    val api_key = "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA"
-    // val api_key = "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S"
-    // val api_key = "Nik2Iq1iV0ME7ipjITGWlrQDS04tZgbw"
-
+    var indice_apisKey = 0
+    var lista_api_key: ArrayList<String> = arrayListOf(
+        "0DwZcASkZifPFGyFHmaqzlgABglN1XG8", "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5", "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA",
+        "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S", "0DwZcASkZifPFGyFHmaqzlgABglN1XG8", "sTXnwQ9l1WqKnDEZasnRTY4VYyRXb4R5",
+        "FmuqdvGl48RxeNdzFSXGloPP2K36WJeA", "XVcZkQ5dxOjRGEHTU4daioSKlKVTLu5S", "Nik2Iq1iV0ME7ipjITGWlrQDS04tZgbw",
+        "UNOHoWt2rQFTN4QdGSC3AbnFGENWxI3e", "8rOS1TqlquUGULZgeM227C5AbL5IRiaZ", "XYjEixnc86MkxnFSrvzn23Z2JFiPCwUG",
+        "87EYQdAb8jlViEELJJ6KsgJGfkcKG6qu", "pYOR8G3FSCxGDjMyzFAbsWTwgr2hslKZ", "2YWNMVutnXL5KpUVBSKfwM8Sqz9msYK8",
+        "3Rd9I0furyNe9WK5nWqxA9qoQyGHU4hA"
+    )
 
     /*
         Funciones que sirven de interface para acceder a los datos
@@ -80,6 +80,10 @@ class Accesso_API {
      */
     @RequiresApi(Build.VERSION_CODES.O)
     private fun coger_datos(nombre: String,longitud: Float, latitud: Float,p_key: String) {
+
+        indice_apisKey = 0
+        var api_key = lista_api_key[indice_apisKey]
+
         // Iniciamos la función por lo que aún no se ha traido los datos
         datos_adquiridos = false
 
@@ -114,9 +118,9 @@ class Accesso_API {
                 // Coger la respuesta del rest API de la consulta de localidad por nombre
                 var respuesta = quotesApi.get_localidad_nombre(nombre, apikey = api_key)
                 // Convertir la respuesta al objeto: List<Localidad>
-                var ciudades = respuesta.body()
+                var ciudades: List<Localidad>? = respuesta.body()
                 key = ciudades?.get(0)?.Key.toString()
-                ciudad_texto = ciudades?.get(0)?.localizedName.toString()
+                ciudad_texto = ciudades?.get(0)?.EnglishName.toString()
             } else {
                 if (p_key == "") {
                     // Coger la respuesta del rest API de la consulta de localidad por geoposición (longitud y latitud)
@@ -125,9 +129,9 @@ class Accesso_API {
                         apikey = api_key
                     )
                     // Convertir la respuesta al objeto: Localidad
-                    var ciudad = respuesta.body()
+                    var ciudad: Localidad? = respuesta.body()
                     key = ciudad?.Key.toString()
-                    ciudad_texto = ciudad?.localizedName.toString()
+                    ciudad_texto = ciudad?.EnglishName.toString()
                 } else {
                     key = p_key
                 }
@@ -167,23 +171,43 @@ class Accesso_API {
             // Coger la respuesta del rest API de la consulta de las condiciones actuales
             val respuesta_cond_act = quotesApi.get_condiciones_actuales(localidad = key, apikey = api_key, details = true, metric = true)
             // Convertir la respuesta al objeto: List<Condiciones>
-            val cond_act = respuesta_cond_act.body()
+            val cond_act: List<Condiciones>?
+            if (respuesta_cond_act.isSuccessful == true) {
+                cond_act = respuesta_cond_act.body()
+            } else {
+                cond_act = null
+            }
 
             // Coger la respuesta del rest API de la consulta de la previción de 1 dia
             val respuesta_prev_1day = quotesApi.get_prevision_1_dia(localidad = key, apikey = api_key, details = true, metric = true)
             // Convertir la respuesta al objeto: Previccion
-            val prev_1day = respuesta_prev_1day.body()
+            val prev_1day: Previccion?
+            if (respuesta_prev_1day.isSuccessful == true) {
+                prev_1day = respuesta_prev_1day.body()
+            } else {
+                prev_1day = null
+            }
 
             // Coger la respuesta del rest API de la consulta de la previcción de 5 dias
             val respuesta_prev_5d = quotesApi.get_prevision_5_dias(localidad = key, apikey = api_key, details = true, metric = true)
             // Convertir la respuesta al objeto: Previccion_5dias
-            val prev_5d = respuesta_prev_5d.body()
+            val prev_5d: Previccion_5dias?
+            if (respuesta_prev_5d.isSuccessful == true) {
+                prev_5d = respuesta_prev_5d.body()
+            } else {
+                prev_5d = null
+            }
+
 
             // Coger la respuesta del rest API de la consulta de la previcción de 12 horas
             val respuesta_prev_12h = quotesApi.get_prevision_12_horas(localidad = key, apikey = api_key, details = true, metric = true)
             // Convertir la respuesta al objeto: List<Previccion_12Horas>
-            val prev_12h = respuesta_prev_12h.body()
-
+            val prev_12h: List<Previccion_12Horas>?
+            if (respuesta_prev_12h.isSuccessful == true) {
+                prev_12h = respuesta_prev_12h.body()
+            } else {
+                prev_12h = null
+            }
 
             /*
                 A continuación se copia los datos necesarios obtenidos de las anteriores llamadas
@@ -193,20 +217,15 @@ class Accesso_API {
 
             resultado.ciudad = ciudad_texto
 
-            // Pasar datos para la CARTA PRICIPAL
             if (cond_act?.get(0) != null) {
+                // Pasar datos de condiciones actuales para que la vista ponga los datos
+                // de la CARTA PRICIPAL
                 resultado.temperatura_actual = cond_act?.get(0)?.Temperature?.Metric?.Value
                 resultado.unidades_temperatura = cond_act?.get(0)?.Temperature?.Metric?.UnitType.toString()
                 resultado.icono = cond_act?.get(0)?.WeatherIcon
                 resultado.icono_frase = cond_act?.get(0)?.WeatherText
-            }
-            if (prev_1day != null) {
-                resultado.temperatura_maxima = prev_1day?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value
-                resultado.temperatura_minima = prev_1day?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value
-            }
-
-             // Pasar datos para los DETALLES
-            if (cond_act?.get(0) != null) {
+                // Pasar datos de condiciones actuales para que la vista ponga los datos
+                // de los DETALLES
                 resultado.presion = cond_act?.get(0)?.Pressure?.Metric?.Value
                 resultado.uv = cond_act?.get(0)?.UVIndex
                 resultado.uv_text = cond_act?.get(0)?.UVIndexText
@@ -215,7 +234,15 @@ class Accesso_API {
                 resultado.direccion_viento = cond_act?.get(0)?.Wind?.Direction?.Localized
             }
 
-            // Pasar datos para las 12 HORAS
+            // Pasar datos de la previcción de 1 dia para que la vista ponga los datos
+            // de la CARTA PRICIPAL
+            if (prev_1day != null) {
+                resultado.temperatura_maxima = prev_1day?.DailyForecasts?.get(0)?.Temperature?.Maximum?.Value
+                resultado.temperatura_minima = prev_1day?.DailyForecasts?.get(0)?.Temperature?.Minimum?.Value
+            }
+
+            // Pasar datos de la previcción de 12 horas para que la vista ponga los datos
+            // de los componentes de las 12 HORAS
             if (prev_12h != null) {
                 resultado.hora_1 = prev_12h?.get(0)?.DateTime.toString()
                 resultado.temperatura_hora_1 = prev_12h?.get(0)?.Temperature?.Value!!
@@ -238,7 +265,8 @@ class Accesso_API {
                 resultado.icono_hora_5 = prev_12h?.get(4)?.WeatherIcon!!
             }
 
-            // Pasar datos para los 5 dias
+            // Pasar datos de la previcción de 12 horas para que la vista ponga los datos
+            // de los componentes de los 5 dias
             if (prev_5d != null) {
                 resultado.fecha_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Date.toString()
                 resultado.frase_dia_1 = prev_5d?.DailyForecasts?.get(0)?.Day?.ShortPhrase.toString()

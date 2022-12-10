@@ -20,6 +20,6 @@ interface QuotesApi_ip {
 interface  QuotesApi_Geolocalizacion {
     @GET("{ip}")
     suspend fun get_geolocalizacion(
-        @Path("ip") ip: String,
+        @Path("ip") ip: String?,
         ) : Response<Geolocalizacion>
 }

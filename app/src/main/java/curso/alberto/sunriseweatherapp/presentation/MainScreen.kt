@@ -87,6 +87,7 @@ fun MainScreen(
                     },
                     onSearchClicked = {
                         Log.d("Searched Text", it)
+                        acceso.coger_tiempo_nombre(MainViewModel.searchTextState.value)
                     },
                     onSearchTriggered = {
                         MainViewModel.updateSearchWidgetState(newValue = SearchWidgetState.OPENED)

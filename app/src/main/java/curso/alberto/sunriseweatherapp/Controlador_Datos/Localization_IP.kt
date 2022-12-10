@@ -20,7 +20,7 @@ class Localizacion_IP() {
 
         GlobalScope.launch {
             var busqueda_ip = quotesApi_ip.get_ip().body()
-            val ip = "2a02:2e02:26c6:5f00:e875:615e:70c1:f773"
+            val ip = busqueda_ip?.ip
             var posicion = quotesApi_geo.get_geolocalizacion(ip).body()
             Log.println(Log.ASSERT, "", "ip:"+busqueda_ip.toString())
             Log.println(Log.ASSERT, "", "posicion:"+posicion.toString())
